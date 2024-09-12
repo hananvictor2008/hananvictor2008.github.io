@@ -162,9 +162,7 @@ section {
 	background-color: rgb(211, 240, 254);
 	clear: left;
 	width: inherit;
-	box-sizing: border-box;
 	padding: 5px;
-    margin: auto;
 }
 
 #nav-bottom ul{
