@@ -1,11 +1,26 @@
 @charset "UTF-8";
-/*Documento CSS*/
-.links{
-    text-align: center;
+body{
+    margin: 0px;
+    margin-top: 0px;
+    font-family: Arial, sans-serif;
+}
+header{
+    background-image: url(../img/headerIndex.png);
+    background-size: cover;
+    display: grid;
+    height: 28rem;
+}
+#divH{
+    margin: auto;
+    height: 20rem;
+    width: 50rem;
 }
 h1{
-    text-align: center;
+    text-align: left;
+    color: rgb(174, 168, 253);
+    font-size: 4rem;
 }
-.meio{
-    margin-left: 48%;
+#divH p{
+    color: whitesmoke;
+    font-size: 1.2rem;
 }
