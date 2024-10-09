@@ -1,14 +1,18 @@
 @charset "UTF-8";
+html{
+    margin-top: -3.2%;
+    padding: 0px;
+}
 body{
     margin: 0px;
     margin-top: 0px;
     font-family: Arial, sans-serif;
 }
 header{
-    background-image: url(../img/headerIndex.png);
+    background: url(../img/headerIndex.jpg) center 400px;
     background-size: cover;
-    display: grid;
-    height: 28rem;
+    border-radius: 2%;
+    padding-top: 30px;
 }
 #divH{
     margin: auto;
@@ -23,4 +27,19 @@ h1{
 #divH p{
     color: whitesmoke;
     font-size: 1.2rem;
+}
+#divH nav{
+    margin-left: 10px;
+}
+#divH nav a{
+    margin: 5px;
+    background-color: rgb(174, 168, 253);
+    padding: 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    color:rgb(46, 46, 46);
+    font-weight: 600;
+}
+#divH nav a:hover{
+    background-color: rgb(127, 118, 255);
 }
