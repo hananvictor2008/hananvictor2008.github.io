@@ -1,0 +1,125 @@
+html{
+    font: Arial, sans-serif;
+    margin: 0px;
+}
+.container{
+    width: 1000px;
+    margin: auto;
+}
+header{
+    background-color: #13A085;
+}
+h1{
+    font-style: normal;
+    color: #fff;
+    font-weight: bolder;
+}
+header ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+    width: 600px;
+    padding-left: 0px;
+}
+header li{
+    padding: 10px;
+}
+header nav{
+    background-color: #19BC9B;
+    width: 600px;
+    margin-left: 0px;
+}
+header a{
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bolder;
+}
+.cinza{
+    background-color:rgb(240, 240, 240);
+    margin: 0px;
+    padding: 50px;
+}
+.cinza h2{
+    text-align: center;
+    font-weight: bolder;
+}
+.cinza p{
+    text-align: center;
+    margin-top: 40px;
+}
+.boxes{
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    gap: 20%;
+}
+.box h3{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.box p{
+    font-size: 10px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.box a{
+    background-color: #13A085;
+    padding: 10px;
+    margin-left: 20%;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    gap: 10%;
+}
+.card{
+    width: 200px;
+}
+.cinza .h2-2{
+    font-size: 20x;
+}
+.cinza ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 40px;
+}
+.cinza li{
+    background-color: #19BC9B;
+    border-radius: 100%;
+    width: 85px;
+    text-align: center;
+    padding: 10px;
+    padding-top: 15px;
+}
+.cinza li i{
+    color: #fff;
+}
+footer{
+    background-color: #13A085;
+    height: 200px;
+    padding-top: 80px;
+}
+footer .surpresa{
+    text-align: center;
+    color: #13A085;
+}
+footer p{
+    text-align: center;
+    color: #fff;
+}
+footer ul{
+    position: relative;
+    padding-left: 45%;
+    display: flex;
+    gap: 12px;
+}
+footer li{
+    color: #fff;
+}
