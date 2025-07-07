@@ -188,19 +188,44 @@ section#HabExp ul li::before {
 }
 
 section#Projetos ol {
-    counter-reset: proj;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    counter-reset: proj;
+    align-items: stretch; /* <— estica os <li> */
 }
 
 section#Projetos ol li {
     counter-increment: proj;
+    height: 100%;
 }
+
+section#Projetos ol li > div {
+    background-color: var(--gray-700);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    transition: transform 200ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
 
 section#Projetos ol li h3::before {
     content: counter(proj, decimal-leading-zero) '. ';
     color: var(--purple-500);
+}
+
+h3 a:link,
+h3 a::after{
+    text-decoration: none;
+    color: inherit;
+}
+
+h3 a:hover {
+    color: var(--purple-500); /* Ou a cor de destaque que preferir */
 }
 
 /* =========================================================
