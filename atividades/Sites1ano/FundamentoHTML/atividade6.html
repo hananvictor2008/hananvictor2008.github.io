@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dever 6</title>
+</head>
+<body>
+    <div>
+        <h1>Preencha o formulario</h1>
+    </div>
+    <form>
+        <fieldset method="post" url="/clientes" type="submit">
+            <legend>Cadastro do Cliente</legend>
+            <div>
+                <label>
+                    <strong>Nome:</strong>
+                </label>
+                <input type="text" name="Nome" id="Nome" required>
+            </div>
+            <br>
+            <div>
+                <label>
+                    <strong>Sobrenome:</strong>
+                </label>
+                <input type="text" name="Sobrenome" id="Sobrenome" required>
+            </div>
+            <br>
+            <div>
+                <label>
+                    <strong>Email:</strong>
+                </label>
+                <input type="text" name="Email" id="Email" required>
+            </div>
+            <br>
+            <div>
+                <label>
+                    <strong>Qual seu gênero?</strong>
+                </label>
+                <label>
+                    <input type="radio" name="gênero" value="Masculino">
+                    Masculino
+                </label> 
+                <label>
+                    <input type="radio" name="gênero" value="Masculino">
+                    Feminino 
+                </label>               
+            </div>
+            <div>
+                <label>
+                    <strong>Deseja receber noticias?</strong>
+                </label>
+                <input type="checkbox" name="not" value="desejarecebernoticias">
+            </div>
+            <br>
+            <button type="submit">Concluido</button>
+            <button type="reset">Cancelar</button>
+        </fieldset>
+    </form>
+</body>
+</html>
