@@ -85,7 +85,7 @@ header::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(20, 0, 40, 0.6); /* tom roxo escuro translúcido */
+    background: rgba(20, 0, 40, 0.6);
     z-index: 0;
 }
 
@@ -192,7 +192,7 @@ section#Projetos ol {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     counter-reset: proj;
-    align-items: stretch; /* <— estica os <li> */
+    align-items: stretch;
 }
 
 section#Projetos ol li {
@@ -225,7 +225,7 @@ h3 a::after{
 }
 
 h3 a:hover {
-    color: var(--purple-500); /* Ou a cor de destaque que preferir */
+    color: var(--purple-500);
 }
 
 /* =========================================================

@@ -1,430 +1,184 @@
-const butao1 = document.querySelector("#butao1")
-const butao2 = document.querySelector("#butao2")
-const butao3 = document.querySelector("#butao3")
-const butao4 = document.querySelector("#butao4")
-const butao5 = document.querySelector("#butao5")
-const butao6 = document.querySelector("#butao6")
-const butao7 = document.querySelector("#butao7")
-const butao8 = document.querySelector("#butao8")
-const butao9 = document.querySelector("#butao9")
-const butao10 = document.querySelector("#butao10")
-
-const limpar1 = document.querySelector("#clear1")
-const limpar2 = document.querySelector("#clear2")
-const limpar3 = document.querySelector("#clear3")
-const limpar4 = document.querySelector("#clear4")
-const limpar5 = document.querySelector("#clear5")
-const limpar6 = document.querySelector("#clear6")
-const limpar7 = document.querySelector("#clear7")
-const limpar8 = document.querySelector("#clear8")
-const limpar9 = document.querySelector("#clear9")
-const limpar10 = document.querySelector("#clear10")
-
-limpar1.onclick = () => {
-  document.querySelector("#resultado1").innerHTML = ""
+// Exercício 1
+function exercicio1() {
+  const input = document.getElementById('ex1Input').value;
+  const invertido = input.split('').reverse().join('');
+  document.getElementById('ex1Output').textContent = invertido;
 }
 
-limpar2.onclick = () => {
-  document.querySelector("#resultado2").innerHTML = ""
+// Exercício 2
+function exercicio2() {
+  const frase = document.getElementById('ex2Input').value;
+  const vogais = /[aeiouáéíóúàèìòùãõâêîôûAEIOUÁÉÍÓÚÀÈÌÒÙÃÕÂÊÎÔÛ]/g;
+  const resultado = frase.replace(vogais, m => `<span class="negrito">${m}</span>`);
+  document.getElementById('ex2Output').innerHTML = resultado;
 }
 
-limpar3.onclick = () => {
-  document.querySelector("#resultado3").innerHTML = ""
-}
+// Exercício 3
+function exercicio3() {
+  const texto = document.getElementById('ex3Input').value.toLowerCase();
+  const palavras = texto.match(/\b[\wçãõáéíóúàèìòùâêîôû]+\b/g) || [];
+  const contagem = {};
+  palavras.forEach(p => contagem[p] = (contagem[p] || 0) + 1);
 
-limpar4.onclick = () => {
-  document.querySelector("#resultado4").innerHTML = ""
-}
-
-limpar5.onclick = () => {
-  document.querySelector("#resultado5").innerHTML = ""
-  document.querySelector("#frase5").style.display = "block"
-  document.querySelector("#substituir").style.display = "none"
-}
-
-limpar6.onclick = () => {
-  document.querySelector("#resultado6").innerHTML = ""
-}
-
-limpar7.onclick = () => {
-  document.querySelector("#resultado7").innerHTML = ""
-}
-
-limpar8.onclick = () => {
-  document.querySelector("#resultado8").innerHTML = ""
-}
-
-limpar9.onclick = () => {
-  document.querySelector("#resultado9").innerHTML = ""
-}
-
-limpar10.onclick = () => {
-  document.querySelector("#resultado10").innerHTML = ""
-}
-
-const pegaFrase = (seletor) => document.querySelector(seletor).value
-
-const inverteFrase = (frase) => {
-  for (let i = 0; i < frase.length; i++) {
-    let palavraInvertida = ""
-    for (let j = frase[i].length - 1; j >= 0; j--) {
-      palavraInvertida += frase[i][j]
-    }
-    frase[i] = palavraInvertida
+  let tabela = '<table><thead><tr><th>Palavra</th><th>Ocorrências</th></tr></thead><tbody>';
+  for (const p in contagem) {
+    tabela += `<tr><td>${p}</td><td>${contagem[p]}</td></tr>`;
   }
-  return frase
+  tabela += '</tbody></table>';
+  document.getElementById('ex3Output').innerHTML = tabela;
 }
 
-const escreveFrase = (frase, seletor) => {
-  document.querySelector(seletor).innerHTML += frase + "<br/>"
-}
-
-const questao1 = () => {
-  let fraseQuestao1 = pegaFrase("#frase1").split(" ")
-  let fraseQuestao1Invertida = inverteFrase(fraseQuestao1)
-  escreveFrase(`${fraseQuestao1Invertida.join(" ")}`, "#resultado1")
-}
-
-butao1.addEventListener("click", questao1)
-
-const temVogal = (frase) => {
-  let vogalNegrito = []
-  for (let i = 0; i < frase.length; i++) {
-    let palavra = ""
-    for (let j = 0; j < frase[i].length; j++) {
-      let letra = frase[i][j]
-      if (
-        letra.toLowerCase() == "a" ||
-        letra.toLowerCase() == "e" ||
-        letra.toLowerCase() == "i" ||
-        letra.toLowerCase() == "o" ||
-        letra.toLowerCase() == "u"
-      ) {
-        palavra += `<strong>${letra}</strong>`
-      } else palavra += letra
-    }
-    vogalNegrito[i] = palavra
-  }
-  return vogalNegrito
-}
-
-const questao2 = () => {
-  let fraseQuestao2 = pegaFrase("#frase2").split(" ")
-  let fraseNegrito = temVogal(fraseQuestao2)
-  escreveFrase(`${fraseNegrito.join(" ")}`, "#resultado2")
-}
-
-butao2.addEventListener("click", questao2)
-
-const contaPalavra = (frase) => {
-  contador = {}
-  for (let i = 0; i < frase.length; i++) {
-    let palavra = frase[i]
-    if (contador[palavra]) {
-      contador[palavra] += 1
-    } else contador[palavra] = 1
-  }
-  return contador
-}
-
-const criaTabela = (contador) => {
-  let tabela = "<table>"
-
-  const palavras = Object.entries(contador)
-  for (let i = 0; i < palavras.length; i++) {
-    const palavra = palavras[i][0]
-    const quantidade = palavras[i][1]
-
-    tabela += `<tr><td>${palavra}</td><td>${quantidade}</td></tr>`
+// Exercício 4
+function exercicio4() {
+  const texto = document.getElementById('ex4Input').value.toLowerCase();
+  const palavras = texto.match(/\b[\wçãõáéíóúàèìòùâêîôû]+\b/g) || [];
+  if (palavras.length === 0) {
+    document.getElementById('ex4Output').textContent = 'Nenhuma palavra encontrada.';
+    return;
   }
 
-  tabela += "</table>"
+  const contagem = {};
+  palavras.forEach(p => contagem[p] = (contagem[p] || 0) + 1);
 
-  document.querySelector("#resultado3").innerHTML += tabela
-}
-
-const questao3 = () => {
-  const fraseQuestao3 = pegaFrase("#frase3").split(" ")
-  const palavrasRepetidas = contaPalavra(fraseQuestao3)
-  criaTabela(palavrasRepetidas)
-}
-
-butao3.addEventListener("click", questao3)
-
-const maiorOcorrencia = (frase) => {
-  const fraseOcorrencia = frase.split(" ")
-  const objOcorrencias = contaPalavra(fraseOcorrencia)
-  const ocorrencias = Object.entries(objOcorrencias)
-
-  let maiorQtd = 0
-  let maiorPalavra
-  for (let i = 0; i < ocorrencias.length; i++) {
-    if (maiorQtd < ocorrencias[i][1]) {
-      maiorQtd = ocorrencias[i][1]
-      maiorPalavra = ocorrencias[i][0]
+  let maiorPalavra = '';
+  let maiorOcorrencia = 0;
+  for (const p in contagem) {
+    if (contagem[p] > maiorOcorrencia) {
+      maiorOcorrencia = contagem[p];
+      maiorPalavra = p;
     }
   }
 
-  return [maiorPalavra, maiorQtd]
+  const totalLetras = texto.replace(/[^a-zçãõáéíóúàèìòùâêîôû]/g, '').length;
+
+  const resultado = 
+    `Palavra de maior ocorrência: "${maiorPalavra}" (${maiorOcorrencia} vezes)\n` +
+    `Número total de palavras: ${palavras.length}\n` +
+    `Número total de letras: ${totalLetras}`;
+  document.getElementById('ex4Output').textContent = resultado;
 }
 
-const questao4 = () => {
-  const fraseQuestao4 = pegaFrase("#frase4")
-  const [palavraQuestao4, qtdQuestao4] = maiorOcorrencia(fraseQuestao4)
-  escreveFrase(
-    `Maior ocorrência = ${palavraQuestao4}, Ocorrências: ${qtdQuestao4}`,
-    "#resultado4"
-  )
-}
+// Exercício 5
+function exercicio5() {
+  let texto = document.getElementById('ex5Texto').value;
+  const procurar = document.getElementById('ex5Procurar').value;
+  const substituir = document.getElementById('ex5Substituir').value;
 
-butao4.addEventListener("click", questao4)
-
-const substitui = (frase, palavraProcurada, palavraSubstituicao) => {
-  const fraseSubstitui = frase.split(" ")
-
-  for (let i = 0; i < fraseSubstitui.length; i++) {
-    if (fraseSubstitui[i] == palavraProcurada) {
-      fraseSubstitui[i] = palavraSubstituicao
-    }
+  if (!procurar) {
+    alert('Digite o texto a procurar');
+    return;
   }
 
-  return fraseSubstitui.join(" ")
+  const escProcurar = procurar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(escProcurar, 'g');
+  texto = texto.replace(regex, substituir);
+  document.getElementById('ex5Output').textContent = texto;
 }
 
-const questao5 = () => {
-  let fraseQuestao5 = document.querySelector("#frase5")
-  const divQuestao5 = document.querySelector("#substituir")
+// Exercício 6
+function exercicio6() {
+  const dataStr = document.getElementById('ex6Input').value;
+  if (!/^\d{2}\/\d{2}\/\d{4}$/.test(dataStr)) {
+    document.getElementById('ex6Output').textContent = 'Formato inválido. Use dd/mm/aaaa';
+    return;
+  }
+  const [dia, mes, ano] = dataStr.split('/').map(Number);
+  const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
 
-  if (fraseQuestao5.style.display != "none") {
-    fraseSalva = fraseQuestao5.value
-    escreveFrase(fraseSalva, "#resultado5")
-    fraseQuestao5.style.display = "none"
-    divQuestao5.style.display = "flex"
+  if (mes < 1 || mes > 12 || dia < 1 || dia > 31) {
+    document.getElementById('ex6Output').textContent = 'Data inválida';
+    return;
+  }
+  document.getElementById('ex6Output').textContent = `${String(dia).padStart(2,'0')} de ${meses[mes-1]} de ${ano}`;
+}
+
+// Exercício 7
+function exercicio7() {
+  const senha = document.getElementById('ex7Input').value;
+  const forcaEl = document.getElementById('forcaSenha');
+  if (!senha) {
+    forcaEl.textContent = '';
+    forcaEl.className = '';
+    return;
+  }
+
+  const temMinuscula = /[a-z]/.test(senha);
+  const temMaiuscula = /[A-Z]/.test(senha);
+  const temNumero = /\d/.test(senha);
+  const temEspecial = /[@#!$%&*()\-\+\.=]/.test(senha);
+
+  let classe = '', texto = '';
+  if ((temMinuscula && !temMaiuscula && !temNumero && !temEspecial) ||
+      (!temMinuscula && temMaiuscula && !temNumero && !temEspecial)) {
+    classe = 'fraca';
+    texto = 'Fraca';
+  } else if (temMinuscula && temMaiuscula && temNumero && !temEspecial) {
+    classe = 'moderada';
+    texto = 'Moderada';
+  } else if (temMinuscula && temMaiuscula && temNumero && temEspecial) {
+    classe = 'forte';
+    texto = 'Forte';
   } else {
-    const procurar = document.querySelector("#procurar5").value
-    const substituir = document.querySelector("#substituir5").value
-
-    fraseSalva = substitui(fraseSalva, procurar, substituir)
-    escreveFrase(fraseSalva, "#resultado5")
-  }
-}
-
-butao5.addEventListener("click", questao5)
-
-const mesPorExtenso = (mes) => {
-  let resultado
-  switch (parseInt(mes, 10)) {
-    case 1:
-      resultado = "janeiro"
-      break
-    case 2:
-      resultado = "fevereiro"
-      break
-    case 3:
-      resultado = "março"
-      break
-    case 4:
-      resultado = "abril"
-      break
-    case 5:
-      resultado = "maio"
-      break
-    case 6:
-      resultado = "junho"
-      break
-    case 7:
-      resultado = "julho"
-      break
-    case 8:
-      resultado = "agosto"
-      break
-    case 9:
-      resultado = "setembro"
-      break
-    case 10:
-      resultado = "outubro"
-      break
-    case 11:
-      resultado = "novembro"
-      break
-    case 12:
-      resultado = "dezembro"
-      break
-    default:
-      resultado = `${mes}`
+    classe = 'fraca';
+    texto = 'Fraca';
   }
 
-  return resultado
+  forcaEl.textContent = texto;
+  forcaEl.className = classe;
 }
 
-const dataPorExtenso = (data) => {
-  const dataArray = data.split("/")
-  const resultado = `Dia ${dataArray[0]} de ${mesPorExtenso(dataArray[1])} de ${
-    dataArray[2]
-  }`
-  return resultado
-}
+// Exercício 8
+function exercicio8() {
+  const input = document.getElementById('ex8Input').value;
+  const map = {
+    'T': 'P', 'P': 'T',
+    'E': 'O', 'O': 'E',
+    'N': 'L', 'L': 'N',
+    'I': 'A', 'A': 'I',
+    'S': 'R', 'R': 'S',
+    't': 'p', 'p': 't',
+    'e': 'o', 'o': 'e',
+    'n': 'l', 'l': 'n',
+    'i': 'a', 'a': 'i',
+    's': 'r', 'r': 's',
+  };
 
-const questao6 = () => {
-  const dataQuestao6 = pegaFrase("#frase6")
-  escreveFrase(dataPorExtenso(dataQuestao6), "#resultado6")
-}
-
-butao6.addEventListener("click", questao6)
-
-const senhaForte = (senha) => {
-  let maiusculas = /[A-Z]/.test(senha)
-  let minusculas = /[a-z]/.test(senha)
-  let numeros = /[0-9]/.test(senha)
-  let especiais = /[@, #, !, $, %, &, *, (, ), -, +, ., =]/.test(senha)
-
-  const resultado = document.querySelector("#resultado7")
-  let nivel
-  let cor
-  if (maiusculas == 0 || minusculas == 0) {
-    nivel = "Coloque no mínimo letras maiúsculas e minúsculas"
-    cor = "#ff0"
-  } else if (numeros == 0) {
-    nivel = "Senha fraca"
-    cor = "#f22"
-  } else if (especiais == 0) {
-    nivel = "Senha moderada"
-    cor = "#f70"
-  } else {
-    nivel = "Senha forte"
-    cor = "#5f5"
+  let resultado = '';
+  for (let c of input) {
+    resultado += map[c] || c;
   }
-
-  resultado.textContent = nivel
-  resultado.style.color = cor
+  document.getElementById('ex8Output').textContent = resultado;
 }
 
-const questao7 = () => {
-  const senhaQuestao7 = pegaFrase("#frase7")
-  senhaForte(senhaQuestao7)
-}
-
-butao7.addEventListener("click", questao7)
-
-const tenisPolar = (frase) => {
-  const fraseOriginal = frase.split("")
-  let novaFrase = []
-
-  for (let i = 0; i < fraseOriginal.length; i++) {
-    switch (fraseOriginal[i]) {
-      case "t":
-        novaFrase[i] = "p"
-        break
-      case "T":
-        novaFrase[i] = "P"
-        break
-      case "e":
-        novaFrase[i] = "o"
-        break
-      case "E":
-        novaFrase[i] = "O"
-        break
-      case "n":
-        novaFrase[i] = "l"
-        break
-      case "N":
-        novaFrase[i] = "L"
-        break
-      case "i":
-        novaFrase[i] = "a"
-        break
-      case "I":
-        novaFrase[i] = "A"
-        break
-      case "s":
-        novaFrase[i] = "r"
-        break
-      case "S":
-        novaFrase[i] = "R"
-        break
-      case "p":
-        novaFrase[i] = "t"
-        break
-      case "P":
-        novaFrase[i] = "T"
-        break
-      case "o":
-        novaFrase[i] = "e"
-        break
-      case "O":
-        novaFrase[i] = "E"
-        break
-      case "l":
-        novaFrase[i] = "n"
-        break
-      case "L":
-        novaFrase[i] = "N"
-        break
-      case "a":
-        novaFrase[i] = "i"
-        break
-      case "A":
-        novaFrase[i] = "I"
-        break
-      case "r":
-        novaFrase[i] = "s"
-        break
-      case "R":
-        novaFrase[i] = "S"
-        break
-      default:
-        novaFrase[i] = fraseOriginal[i]
-    }
+// Exercício 9
+function exercicio9() {
+  const inputData = document.getElementById('ex9Input').value;
+  if (!inputData) {
+    document.getElementById('ex9Output').textContent = 'Selecione uma data';
+    return;
   }
-  return novaFrase.join("")
+  const nascimento = new Date(inputData);
+  const hoje = new Date();
+  if (nascimento > hoje) {
+    document.getElementById('ex9Output').textContent = 'Data de nascimento no futuro?';
+    return;
+  }
+  const diffMs = hoje - nascimento;
+  const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  document.getElementById('ex9Output').textContent = `Você tem ${diffDias} dias de vida.`;
 }
 
-const questao8 = () => {
-  const fraseQuestao8 = pegaFrase("#frase8")
-  const resultado = tenisPolar(fraseQuestao8)
-  escreveFrase(resultado, "#resultado8")
+// Exercício 10
+function exercicio10() {
+  const data1Str = document.getElementById('ex10Data1').value;
+  const data2Str = document.getElementById('ex10Data2').value;
+  if (!data1Str || !data2Str) {
+    document.getElementById('ex10Output').textContent = 'Selecione as duas datas';
+    return;
+  }
+  const d1 = new Date(data1Str);
+  const d2 = new Date(data2Str);
+  const diffMs = Math.abs(d2 - d1);
+  const diffSemanas = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 7));
+  document.getElementById('ex10Output').textContent = `Distância: ${diffSemanas} semana(s).`;
 }
-
-butao8.addEventListener("click", questao8)
-
-const tempoDeVida = (dia, mes, ano) => {
-  const nasc = new Date(`${ano}-${mes}-${dia}`)
-  const hoje = new Date()
-
-  let resultado = hoje - nasc
-  resultado /= 1000 * 60 * 60 * 24
-
-  return Math.floor(resultado)
-}
-
-const questao9 = () => {
-  let dataDeNasc = pegaFrase("#frase9")
-  dataDeNasc = dataDeNasc.split("/")
-  const dia = dataDeNasc[0]
-  const mes = dataDeNasc[1]
-  const ano = dataDeNasc[2]
-  const resultado = tempoDeVida(dia, mes, ano)
-  escreveFrase(`${resultado} dias de vida`, "#resultado9")
-}
-
-butao9.addEventListener("click", questao9)
-
-const tempoDistancia = (inicio, fim) => {
-  inicio = new Date(inicio)
-  fim = new Date(fim)
-
-  resultado = fim - inicio
-  resultado /= 1000 * 60 * 60 * 24
-  resultado /= 7
-
-  return Math.trunc(resultado)
-}
-
-const questao10 = () => {
-  const inicio = document.querySelector("#data1").value
-  const fim = document.querySelector("#data2").value
-  const resultado = tempoDistancia(inicio, fim)
-  escreveFrase(`${resultado} semanas`, "#resultado10")
-}
-
-butao10.addEventListener("click", questao10)
