@@ -1,0 +1,41 @@
+.breadcrumb {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--purple-300);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.breadcrumb:hover {
+    color: var(--purple-500);
+}
+
+main ul {
+    margin-left: 1rem;
+}
+
+main li {
+    margin-bottom: 0.5rem;
+}
+
+main a {
+    color: var(--gray-100);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+main a:hover {
+    color: var(--purple-300);
+    border-color: var(--purple-300);
+}
+
+main > .container > section + section {
+    margin-top: 2.5rem;
+}
+
+.aviso {
+    color: var(--purple-300);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
