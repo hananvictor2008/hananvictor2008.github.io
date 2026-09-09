@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkslategrey;
+}
+
+.marca {
+    font-size: 75px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding-bottom: 35px;
+}
+
+.boxLinha {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 350px;
+    border: 1px solid #000;
+    border-radius: 35px;
+    padding: 35px;
+    background-color: #fff;
+}
+
+.box img {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+    margin-left: 15px;
+}
+
+.opinioes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.opiniao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.avaliacao {
+    display: flex;
+}
+
+.estrela {
+    height: 25px;
+}
+
+.descricao {
+    font-style: italic;
+}
+
+.classificacao {
+    align-self: start;
+    margin-top: auto;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+}

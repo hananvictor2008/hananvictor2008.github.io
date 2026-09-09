@@ -1,0 +1,117 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f3ee;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4b2e1f;
+    font-size: 3rem; /* maior e impactante */
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Lista de Produtos */
+#produtos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+#produtos li {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+#produtos li:hover {
+    transform: scale(1.03);
+}
+
+#produtos img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+#produtos h3 {
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+    text-align: center;
+}
+
+#produtos p {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* Carrinho */
+#areaDeCompra {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fffaf4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#areaDeCompra h2 {
+    margin-bottom: 15px;
+    color: #4b2e1f;
+}
+
+#carrinho {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+#carrinho li {
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+}
+
+/* Total */
+#total {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #produtos {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}

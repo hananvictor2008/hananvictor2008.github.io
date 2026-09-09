@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="../../JavaScript/aula03.js"></script>
+<title>Exercícios Texto e Data</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    max-width: 900px;
+  }
+  section {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  textarea, input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    box-sizing: border-box;
+    font-size: 1em;
+  }
+  button {
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  .output {
+    margin-top: 10px;
+    background: #f4f4f4;
+    padding: 10px;
+    white-space: pre-wrap;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  .negrito {
+    font-weight: bold;
+  }
+  /* Para exercício 7 */
+  #forcaSenha {
+    font-weight: bold;
+  }
+  .fraca {
+    color: red;
+  }
+  .moderada {
+    color: orange;
+  }
+  .forte {
+    color: green;
+  }
+</style>
+</head>
+<body>
+
+<h1>Exercícios Texto e Data</h1>
+
+<!-- Exercício 1 -->
+<section>
+  <h2>1. Inverter caracteres de uma frase</h2>
+  <textarea id="ex1Input" rows="2" placeholder="Digite uma frase"></textarea><br />
+  <button onclick="exercicio1()">Inverter</button>
+  <div id="ex1Output" class="output"></div>
+</section>
+
+<!-- Exercício 2 -->
+<section>
+  <h2>2. Marcar vogais em negrito</h2>
+  <textarea id="ex2Input" rows="2" placeholder="Digite uma frase"></textarea><br />
+  <button onclick="exercicio2()">Marcar vogais</button>
+  <div id="ex2Output" class="output"></div>
+</section>
+
+<!-- Exercício 3 -->
+<section>
+  <h2>3. Contar ocorrência das palavras</h2>
+  <textarea id="ex3Input" rows="3" placeholder="Digite um texto"></textarea><br />
+  <button onclick="exercicio3()">Contar palavras</button>
+  <div id="ex3Output" class="output"></div>
+</section>
+
+<!-- Exercício 4 -->
+<section>
+  <h2>4. Estatísticas do texto</h2>
+  <textarea id="ex4Input" rows="3" placeholder="Digite um texto"></textarea><br />
+  <button onclick="exercicio4()">Mostrar estatísticas</button>
+  <div id="ex4Output" class="output"></div>
+</section>
+
+<!-- Exercício 5 -->
+<section>
+  <h2>5. Substituir texto</h2>
+  <textarea id="ex5Texto" rows="3" placeholder="Digite um texto"></textarea><br />
+  <input type="text" id="ex5Procurar" placeholder="Texto a procurar" />
+  <input type="text" id="ex5Substituir" placeholder="Texto para substituir" /><br />
+  <button onclick="exercicio5()">Substituir</button>
+  <div id="ex5Output" class="output"></div>
+</section>
+
+<!-- Exercício 6 -->
+<section>
+  <h2>6. Data por extenso</h2>
+  <input type="text" id="ex6Input" placeholder="Digite a data dd/mm/aaaa" />
+  <button onclick="exercicio6()">Exibir por extenso</button>
+  <div id="ex6Output" class="output"></div>
+</section>
+
+<!-- Exercício 7 -->
+<section>
+  <h2>7. Força da senha</h2>
+  <input type="text" id="ex7Input" placeholder="Digite uma senha" oninput="exercicio7()" />
+  <div id="forcaSenha"></div>
+</section>
+
+<!-- Exercício 8 -->
+<section>
+  <h2>8. Codificação TENIS/POLAR</h2>
+  <textarea id="ex8Input" rows="2" placeholder="Digite uma frase"></textarea><br />
+  <button onclick="exercicio8()">Codificar</button>
+  <div id="ex8Output" class="output"></div>
+</section>
+
+<!-- Exercício 9 -->
+<section>
+  <h2>9. Dias de vida</h2>
+  <input type="date" id="ex9Input" />
+  <button onclick="exercicio9()">Calcular dias de vida</button>
+  <div id="ex9Output" class="output"></div>
+</section>
+
+<!-- Exercício 10 -->
+<section>
+  <h2>10. Distância entre datas em semanas</h2>
+  <label>Data 1: <input type="date" id="ex10Data1" /></label><br />
+  <label>Data 2: <input type="date" id="ex10Data2" /></label><br />
+  <button onclick="exercicio10()">Calcular semanas</button>
+  <div id="ex10Output" class="output"></div>
+</section>
+</body>
+</html>

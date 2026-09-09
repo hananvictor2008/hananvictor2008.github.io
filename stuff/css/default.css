@@ -1,0 +1,290 @@
+/* =========================================================
+   Paleta & configuração geral
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    /* Roxos (primários) */
+    --purple-900: #2e0845;   /* bem escuro, quase berinjela   */
+    --purple-700: #4c1d95;   /* roxo profundo / masculino     */
+    --purple-500: #7042d9;   /* roxo médio para detalhes      */
+    --purple-300: #9b7cf5;   /* highlight / hover             */
+
+    /* Cinzas neutros */
+    --gray-900: #0f0f11;     /* fundo principal               */
+    --gray-700: #232329;     /* cards / seções                */
+    --gray-100: #f3f4f6;     /* textos claros                 */
+
+    /* Outros */
+    --radius-lg : 0.75rem;
+    --transition-fast: 200ms ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--gray-100);
+    background-color: var(--gray-900);
+    scroll-behavior: smooth;
+}
+
+/* =========================================================
+   Layout utilitário
+   ========================================================= */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+section {
+    padding: 3rem 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--purple-500);
+    padding-left: 0.6rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--purple-300);
+}
+
+/* =========================================================
+   Cabeçalho & Navegação
+   ========================================================= */
+header {
+    background-image: url('../img/headerIndex.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 4px solid var(--purple-700);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    color: var(--gray-100);
+    position: relative;
+}
+
+/* Sobreposição escura para melhorar o contraste */
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 0, 40, 0.6);
+    z-index: 0;
+}
+
+#header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+
+#header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+#header p {
+    font-size: 1rem;
+    color: var(--purple-300);
+    max-width: 600px;
+    margin: 0.5rem auto 1.5rem;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+nav a {
+    position: relative;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--gray-100);
+    padding: 0.5rem 0;
+    transition: color var(--transition-fast);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--purple-300);
+    transition: width var(--transition-fast);
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--purple-300);
+}
+
+nav a:hover::after,
+nav a:focus::after {
+    width: 100%;
+}
+
+/* =========================================================
+   Listas & conteúdo de seções
+   ========================================================= */
+ul, ol {
+    list-style: none;
+}
+
+section#HabExp .container > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+section#HabExp div > div,
+section#Projetos ol li > div {
+    background-color: var(--gray-700);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    transition: transform var(--transition-fast);
+}
+
+section#HabExp div > div:hover,
+section#Projetos ol li > div:hover {
+    transform: translateY(-6px);
+}
+
+section#HabExp ul li,
+section#Projetos p {
+    margin-left: 1rem;
+    position: relative;
+}
+
+section#HabExp ul li::before {
+    content: '▹';
+    position: absolute;
+    left: -1rem;
+    color: var(--purple-500);
+}
+
+section#Projetos ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    counter-reset: proj;
+    align-items: stretch;
+}
+
+section#Projetos ol li {
+    counter-increment: proj;
+    height: 100%;
+}
+
+section#Projetos ol li > div {
+    background-color: var(--gray-700);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    transition: transform 200ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+
+section#Projetos ol li h3::before {
+    content: counter(proj, decimal-leading-zero) '. ';
+    color: var(--purple-500);
+}
+
+h3 a:link,
+h3 a::after{
+    text-decoration: none;
+    color: inherit;
+}
+
+h3 a:hover {
+    color: var(--purple-500);
+}
+
+/* =========================================================
+   Rodapé
+   ========================================================= */
+footer {
+    background-color: var(--purple-900);
+    border-top: 4px solid var(--purple-700);
+    margin-top: 3rem;
+    padding: 3rem 1rem 2rem;
+}
+
+footer h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+footer #Contato {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer #Contato div {
+    background-color: var(--gray-700);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+}
+
+footer #Contato img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.75rem;
+    filter: grayscale(100%) opacity(80%);
+    transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+footer #Contato div:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%) opacity(100%);
+}
+
+/* =========================================================
+   Responsividade extra
+   ========================================================= */
+@media (max-width: 600px) {
+    #header h1 {
+        font-size: 1.9rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+}
